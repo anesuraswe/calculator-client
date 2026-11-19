@@ -40,24 +40,18 @@ function App() {
 
           {/* Dashboard and calculator panel */}
           <Grid
-            templateColumns={{
-              base: "1fr",
-              lg: "2fr 1fr",
-            }}
-            gap={6}
-            alignItems="start"
-          >
-            {/* Left: Calculator dashboard */}
-            <Box minW="0">
-              <CalculatorDashboard
-                onSelectCalculator={setSelectedCalculator}
-              />
-            </Box>
+  templateColumns={{ base: "1fr", md: "2fr 1fr" }}
+  gap={6}
+  alignItems="start"
+>
+  <Box minW="0">
+    <CalculatorDashboard onSelectCalculator={setSelectedCalculator} />
+  </Box>
 
             {/* Right: Selected calculator */}
             <Box
               minW="0"
-              position={{ base: "static", lg: "sticky" }}
+              position={{ base: "static", md: "sticky" }}
               top="100px"
               borderWidth="1px"
               borderColor="border"
