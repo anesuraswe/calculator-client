@@ -56,8 +56,8 @@ const Observations = () => {
   ];
 
   return (
-    <Box id="observations" py={{ base: 10, md: 16 }}>
-      <Container maxW="1100px">
+    <Box id="observations" w="100%">
+      
         <VStack align="stretch" gap={8}>
           {/* Heading */}
           <Box>
@@ -118,7 +118,7 @@ const Observations = () => {
           </Box>
 
           {/* Reference cards */}
-          <SimpleGrid columns={{ base: 1, md: 3 }} gap={5}>
+          <SimpleGrid columns={1} gap={4}>
             {observationCards.map((item) => {
               const Icon = item.icon;
 
@@ -194,7 +194,7 @@ const Observations = () => {
             Acceptable ranges for physiological variables.
           </Text>
         </VStack>
-      </Container>
+      
     </Box>
   );
 };
