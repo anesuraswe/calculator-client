@@ -1,17 +1,11 @@
-
 import { useState } from "react";
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Container, Heading, Text, VStack } from "@chakra-ui/react";
 
 import NavBar from "./components/NavBar";
 import PatientForm from "./components/PatientForm";
 import PatientSummary from "./components/PatientSummary";
 import CalculatorDashboard from "./components/CalculatorDashboard";
+import Observations from "./components/Observations";
 
 import type { PatientDetails } from "./types/patient";
 import { calculators } from "./data/calculators";
@@ -19,11 +13,11 @@ import { calculators } from "./data/calculators";
 function App() {
   const [patient, setPatient] = useState<PatientDetails | null>(null);
   const [selectedCalculator, setSelectedCalculator] = useState<string | null>(
-    null
+    null,
   );
 
   const selected = calculators.find(
-    (calculator) => calculator.id === selectedCalculator
+    (calculator) => calculator.id === selectedCalculator,
   );
 
   return (
@@ -38,11 +32,11 @@ function App() {
         </VStack>
       </Container>
 
-      <CalculatorDashboard
-        onSelectCalculator={setSelectedCalculator}
-      />
+      <CalculatorDashboard onSelectCalculator={setSelectedCalculator} />
 
-      {selected && (
+      {selectedCalculator === "observations" && <Observations />}
+
+      {selected && selectedCalculator !== "observations" && (
         <Box py={16} id="selected-calculator">
           <Container maxW="1000px">
             <Heading size="xl">{selected.title}</Heading>
