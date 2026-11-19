@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import {
   Box,
   Button,
@@ -38,7 +38,7 @@ const PatientForm = ({ onSubmit }: PatientFormProps) => {
     return `${year}-${month}-${day}`;
   })();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const newErrors: typeof errors = {};
